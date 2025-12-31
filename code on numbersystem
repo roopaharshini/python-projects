@@ -1,0 +1,19 @@
+digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+num = input("Enter the number: ").upper()
+from_base = int(input("Enter the base of the number: "))
+to_base = int(input("Enter the base to convert into: "))
+
+
+decimal_value = int(num, from_base)
+
+result = ""
+n = decimal_value
+if n == 0:
+    result = "0"
+else:
+    while n > 0:
+        result = digits[n % to_base] + result
+        n //= to_base
+
+print(num, "(base", from_base, ") =", result, "(base", to_base, ")")
